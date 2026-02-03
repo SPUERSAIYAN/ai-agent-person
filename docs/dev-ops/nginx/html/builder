@@ -1,0 +1,14 @@
+# 1. 登录阿里云私有镜像仓库（输入密码时屏幕不会显示字符）
+docker login --username=你的阿里云账号 crpi-takoatwvli6uv0zy.cn-hangzhou.personal.cr.aliyuncs.com
+
+# 2. 构建镜像（注意末尾有一个点 .）
+docker build -t crpi-takoatwvli6uv0zy.cn-hangzhou.personal.cr.aliyuncs.com/supersaiyan1/ai-agent-web:1.4 .
+
+# 3. 将镜像推送到阿里云
+docker push crpi-takoatwvli6uv0zy.cn-hangzhou.personal.cr.aliyuncs.com/supersaiyan1/ai-agent-web:1.4
+
+4.关闭容器
+docker-compose -f docker-compose-app.yml down
+
+5.运行
+docker-compose -f docker-compose-app.yml up -d
