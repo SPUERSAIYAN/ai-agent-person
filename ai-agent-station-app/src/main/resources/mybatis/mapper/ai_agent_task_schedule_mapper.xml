@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.bugstack.ai.infrastructure.dao.IAiAgentTaskScheduleDao">
+<mapper namespace="cn.agent.ai.infrastructure.dao.IAiAgentTaskScheduleDao">
 
-    <resultMap id="dataMap" type="cn.bugstack.ai.infrastructure.dao.po.AiAgentTaskSchedule">
+    <resultMap id="dataMap" type="cn.agent.ai.infrastructure.dao.po.AiAgentTaskSchedule">
         <id column="id" property="id"/>
         <result column="agent_id" property="agentId"/>
         <result column="task_name" property="taskName"/>
@@ -36,7 +36,7 @@
     </select>
     
     <!-- 根据条件查询任务调度配置列表 -->
-    <select id="queryTaskScheduleList" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiAgentTaskSchedule" resultMap="dataMap">
+    <select id="queryTaskScheduleList" parameterType="cn.agent.ai.infrastructure.dao.po.AiAgentTaskSchedule" resultMap="dataMap">
         SELECT 
             id, agent_id, task_name, description, cron_expression, task_param, status, create_time, update_time
         FROM 
@@ -76,7 +76,7 @@
     </select>
 
     <!-- 插入任务调度配置 -->
-    <insert id="insert" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiAgentTaskSchedule">
+    <insert id="insert" parameterType="cn.agent.ai.infrastructure.dao.po.AiAgentTaskSchedule">
         INSERT INTO ai_agent_task_schedule (
             agent_id, task_name, description, cron_expression, task_param, status, create_time, update_time
         ) VALUES (
@@ -85,7 +85,7 @@
     </insert>
     
     <!-- 更新任务调度配置 -->
-    <update id="update" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiAgentTaskSchedule">
+    <update id="update" parameterType="cn.agent.ai.infrastructure.dao.po.AiAgentTaskSchedule">
         UPDATE ai_agent_task_schedule
         SET agent_id = #{agentId},
             task_name = #{taskName},

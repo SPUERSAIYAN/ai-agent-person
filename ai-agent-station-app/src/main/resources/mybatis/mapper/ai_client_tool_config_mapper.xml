@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.bugstack.ai.infrastructure.dao.IAiClientToolConfigDao">
+<mapper namespace="cn.agent.ai.infrastructure.dao.IAiClientToolConfigDao">
 
-    <resultMap id="dataMap" type="cn.bugstack.ai.infrastructure.dao.po.AiClientToolConfig">
+    <resultMap id="dataMap" type="cn.agent.ai.infrastructure.dao.po.AiClientToolConfig">
         <id column="id" property="id"/>
         <result column="client_id" property="clientId"/>
         <result column="tool_type" property="toolType"/>
@@ -32,7 +32,7 @@
     </select>
     
     <!-- 插入客户端工具配置 -->
-    <insert id="insert" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiClientToolConfig">
+    <insert id="insert" parameterType="cn.agent.ai.infrastructure.dao.po.AiClientToolConfig">
         INSERT INTO ai_client_tool_config (
             client_id, tool_type, tool_id, create_time
         ) VALUES (
@@ -41,7 +41,7 @@
     </insert>
     
     <!-- 更新客户端工具配置 -->
-    <update id="update" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiClientToolConfig">
+    <update id="update" parameterType="cn.agent.ai.infrastructure.dao.po.AiClientToolConfig">
         UPDATE ai_client_tool_config
         SET client_id = #{clientId},
             tool_type = #{toolType},
@@ -86,7 +86,7 @@
     </select>
     
     <!-- 根据条件查询客户端工具配置列表 -->
-    <select id="queryToolConfigList" parameterType="cn.bugstack.ai.infrastructure.dao.po.AiClientToolConfig" resultMap="dataMap">
+    <select id="queryToolConfigList" parameterType="cn.agent.ai.infrastructure.dao.po.AiClientToolConfig" resultMap="dataMap">
         SELECT 
             id, client_id, tool_type, tool_id, create_time
         FROM 
